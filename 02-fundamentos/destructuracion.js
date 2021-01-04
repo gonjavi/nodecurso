@@ -6,4 +6,11 @@ let pool = {
     return `${this.nombre} ${this.apellido} - instrumento ${this.instrumento}`
   }
 };
-console.log(pool.getNombre());
+
+const { nombre, apellido, instrumento } = pool;
+
+console.log(nombre, apellido, instrumento);
+
+const { nombre: primerNombre } = pool;
+
+console.log(primerNombre);
