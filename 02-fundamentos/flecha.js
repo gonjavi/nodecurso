@@ -7,3 +7,7 @@ console.log(sumar(10, 20));
 const sumar1 = (a,b) => a + b;
 
 console.log(sumar1(15, 20));
+
+const saludar = () => 'hola mundo';
+
+console.log(saludar());
