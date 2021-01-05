@@ -45,9 +45,9 @@ let getSalario = empleado => {
 }
 
 getEmpleado(3).then(empleado => {  
-  getSalario(empleado).then(resp => {
-    console.log(`El salario de ${resp.nombre} es: ${resp.salario} `);
-  }, err => console.log(err));
-}, err => console.log(err));
+  return getSalario(empleado); // con el return el siguiente then corresponde a esa promesa  
+}).then(resp => {
+  console.log(`El salario de ${resp.nombre} es: ${resp.salario} `);
+}).catch(err => console.log(err));
 
 
