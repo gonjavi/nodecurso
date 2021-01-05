@@ -1,15 +1,9 @@
-const fs = require('fs'); // propio de node
-// const fs = require('express'); // paquete que se instala
-// const fs = require('./'); // de archivos que creamos
 
-let base = 4;
-let data = '';
+const { crearArchivo } = require('./multiplicar/multiplicar');
 
-for (let i = 1; i <= 10; i++) {
-  data += `${base} * ${i} = ${base * i}\n`;
-}
+let base = 5;
 
-fs.writeFile(`tablas/tabla-${base}.txt`, data, (err) => {
-  if (err) throw err;
-  console.log(`The file ${base} has been saved!`);
-});
+crearArchivo(base)
+  .then(archivo => console.log(`Archivo creado: ${archivo}`))
+  .catch(err => console.log(err));
+  
