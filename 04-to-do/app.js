@@ -22,7 +22,8 @@ switch(comando) {
     
   break;
   case 'actualizar':
-    console.log('Actualizar una tarea');
+    let actualizado = toDo.actualizar(argv.descripcion, argv.completado);
+    console.log(actualizado);
   break;
   default:
     console.log('El comando no es reconocido');
@@ -30,3 +31,4 @@ switch(comando) {
 
 
 // comando $  node app.js crear -d 'pasear perro'
+// node app.js listar
