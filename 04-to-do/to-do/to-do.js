@@ -4,18 +4,13 @@ const fs = require('fs');
 let listadoToDo = [];
 
 const guardarDB = () => {
-  let data = JSON.stringify(listadoToDo);
-  return new Promise((resolve, reject) => {
-    if (!data) {
-      reject('NO hay datos para guardar');
-      return;
-    }
+  let data = JSON.stringify(listadoToDo);  
 
-    fs.writeFile('db/data.json', data, (err) => {
-      if (err) 
-        throw new Error('No se pudo grabar', err);      
-    });
+  fs.writeFile('db/data.json', data, (err) => {
+    if (err) 
+      throw new Error('No se pudo grabar', err);      
   });
+  
 }
 
 const cargarDB = () => {
@@ -54,8 +49,22 @@ const actualizar = (descripcion, completado = true) => {
   }
 }
 
+const borrar = descripcion => {
+  cargarDB();
+  let nuevoListado = listadoToDo.filter(tarea => tarea.descripcion !== descripcion);
+
+  if (listadoToDo.length === nuevoListado.length) {
+    return false;
+  } else {
+    listadoToDo = nuevoListado;
+    guardarDB();
+    return true;
+  }
+}
+
 module.exports = {
   crear,
   getListado,
   actualizar,
+  borrar,
 }

@@ -25,6 +25,9 @@ switch(comando) {
     let actualizado = toDo.actualizar(argv.descripcion, argv.completado);
     console.log(actualizado);
   break;
+  case 'borrar':
+    let borrado = toDo.borrar(argv.descripcion);
+    console.log(borrado);
   default:
     console.log('El comando no es reconocido');
 }
