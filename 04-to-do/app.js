@@ -35,3 +35,5 @@ switch(comando) {
 
 // comando $  node app.js crear -d 'pasear perro'
 // node app.js listar
+// node app.js borrar -d dormir
+// node app.js actualizar -d orar -c true
